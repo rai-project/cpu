@@ -71,8 +71,6 @@ const (
 	CoreGranularity
 )
 
-// Implementation
-
 // NewHwlocTopology constructs a Topology for the local machine,
 // implemented in terms of libhwloc.
 func NewHwlocTopology() (Topology, error) {
@@ -99,6 +97,7 @@ type hwloc struct {
 	ptr C.hwloc_topology_t
 }
 
+// N ...
 func (t *hwloc) N() int {
 	return int(C.hwloc_get_nbobjs_by_type(t.ptr, C.HWLOC_OBJ_CORE))
 }
@@ -107,6 +106,7 @@ type unit struct {
 	c C.hwloc_cpuset_t
 }
 
+// String ...
 func (u unit) String() string {
 	b := [64]C.char{}
 	n := C.hwloc_bitmap_list_snprintf(&b[0], C.size_t(len(b)), u.c)
@@ -114,10 +114,12 @@ func (u unit) String() string {
 	return C.GoStringN(&b[0], n)
 }
 
+// Weight ...
 func (u unit) Weight() int {
 	return int(C.hwloc_bitmap_weight(u.c))
 }
 
+// Distribute ...
 func (t *hwloc) Distribute(
 	n int, opts DistributeOptions) ([]Unit, error) {
 

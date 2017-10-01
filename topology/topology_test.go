@@ -23,6 +23,7 @@ import (
 	cadvisorapi "github.com/google/cadvisor/info/v1"
 )
 
+// Test_Discover ...
 func Test_Discover(t *testing.T) {
 
 	tests := []struct {

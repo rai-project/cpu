@@ -21,6 +21,7 @@ import (
 	"testing"
 )
 
+// TestCPUSetBuilder ...
 func TestCPUSetBuilder(t *testing.T) {
 	b := NewBuilder()
 	elems := []int{1, 2, 3, 4, 5}
@@ -38,6 +39,7 @@ func TestCPUSetBuilder(t *testing.T) {
 	}
 }
 
+// TestCPUSetSize ...
 func TestCPUSetSize(t *testing.T) {
 	testCases := []struct {
 		cpuset   CPUSet
@@ -56,6 +58,7 @@ func TestCPUSetSize(t *testing.T) {
 	}
 }
 
+// TestCPUSetIsEmpty ...
 func TestCPUSetIsEmpty(t *testing.T) {
 	testCases := []struct {
 		cpuset   CPUSet
@@ -74,6 +77,7 @@ func TestCPUSetIsEmpty(t *testing.T) {
 	}
 }
 
+// TestCPUSetContains ...
 func TestCPUSetContains(t *testing.T) {
 	testCases := []struct {
 		cpuset         CPUSet
@@ -99,6 +103,7 @@ func TestCPUSetContains(t *testing.T) {
 	}
 }
 
+// TestCPUSetEqual ...
 func TestCPUSetEqual(t *testing.T) {
 	shouldEqual := []struct {
 		s1 CPUSet
@@ -133,6 +138,7 @@ func TestCPUSetEqual(t *testing.T) {
 	}
 }
 
+// TestCPUSetIsSubsetOf ...
 func TestCPUSetIsSubsetOf(t *testing.T) {
 	shouldBeSubset := []struct {
 		s1 CPUSet
@@ -170,6 +176,7 @@ func TestCPUSetIsSubsetOf(t *testing.T) {
 	}
 }
 
+// TestCPUSetUnion ...
 func TestCPUSetUnion(t *testing.T) {
 	testCases := []struct {
 		s1       CPUSet
@@ -201,6 +208,7 @@ func TestCPUSetUnion(t *testing.T) {
 	}
 }
 
+// TestCPUSetIntersection ...
 func TestCPUSetIntersection(t *testing.T) {
 	testCases := []struct {
 		s1       CPUSet
@@ -232,6 +240,7 @@ func TestCPUSetIntersection(t *testing.T) {
 	}
 }
 
+// TestCPUSetDifference ...
 func TestCPUSetDifference(t *testing.T) {
 	testCases := []struct {
 		s1       CPUSet
@@ -263,6 +272,7 @@ func TestCPUSetDifference(t *testing.T) {
 	}
 }
 
+// TestCPUSetToSlice ...
 func TestCPUSetToSlice(t *testing.T) {
 	testCases := []struct {
 		set      CPUSet
@@ -281,6 +291,7 @@ func TestCPUSetToSlice(t *testing.T) {
 	}
 }
 
+// TestCPUSetString ...
 func TestCPUSetString(t *testing.T) {
 	testCases := []struct {
 		set      CPUSet
@@ -300,6 +311,7 @@ func TestCPUSetString(t *testing.T) {
 	}
 }
 
+// TestParse ...
 func TestParse(t *testing.T) {
 	testCases := []struct {
 		cpusetString string

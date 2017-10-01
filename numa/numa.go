@@ -10,6 +10,7 @@ import (
 // #include <numa.h>
 import "C"
 
+// NumaNotAvailable ...
 var NumaNotAvailable = errors.New("No NUMA support available on this system")
 
 /* Is Numa available? */
@@ -18,9 +19,12 @@ func IsNumaAvailable() int {
 }
 
 /* Get max available node */
-func MaxNode() int         { return int(C.numa_max_node()) }
+func MaxNode() int { return int(C.numa_max_node()) }
+
+// MaxPossibleNode ...
 func MaxPossibleNode() int { return int(C.numa_max_possible_node()) }
 
+// NumConfiguredCPUs ...
 func NumConfiguredCPUs() int { return int(C.numa_num_configured_cpus()) }
 
 /**
@@ -32,6 +36,7 @@ func MemoryOfNode(node int) (inAll, free uint64) {
 	return uint64(cInAll), uint64(cFree)
 }
 
+// MemInMB ...
 func MemInMB(mem uint64) uint64 {
 	return mem >> 20
 }
@@ -83,6 +88,7 @@ func CPUsOfNode(node int) (cpus []int, err error) {
 
 }
 
+// PrintDistance ...
 func PrintDistance() {
 
 	maxnode := MaxNode()
@@ -124,12 +130,14 @@ func PrintDistance() {
 	}
 }
 
+// Distance ...
 type Distance struct {
 	Start  uint32
 	End    uint32
 	Length uint32
 }
 
+// GetDistances ...
 func GetDistances() (distances []Distance) {
 	maxnode := MaxNode()
 
