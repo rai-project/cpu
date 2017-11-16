@@ -1,4 +1,4 @@
-// +build ppc64le
+// +build arm64
 
 package cpuid
 
